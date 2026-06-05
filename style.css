@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef0f8;
+  padding: 32px;
+}
+
+/* ── CARD ── */
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 44px;
+  max-width: 560px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(100, 110, 180, 0.10);
+}
+
+/* ── TEXTO ── */
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2c2c2c;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+/* ── LINKS ── */
+
+.link {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #3730a3;
+  text-decoration: underline;
+}
+
+/* ── WRAPPER para posicionar o tooltip ── */
+
+.link-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* ── TOOLTIP ── */
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px); /* aparece acima do link */
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  background: #4f46e5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+  z-index: 10;
+}
+
+/* Triângulo abaixo do tooltip */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: #4f46e5;
+}
+
+/* Mostra o tooltip ao passar o mouse sobre o link-wrap */
+.link-wrap:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
